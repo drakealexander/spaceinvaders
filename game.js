@@ -65,8 +65,16 @@ var theGame = {
                 range = game.time.now + 400;
             }
         }
+        
+        game.physics.arcade.overlap(bullet, enemies, collide, null, this);
+        
     }
 };
+
+function collide(bullet, enemy){
+    bullet.kill();
+    enemy.kill();
+}
 
 function downEnemies(){
     enemies.y += 10;
